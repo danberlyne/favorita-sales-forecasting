@@ -37,6 +37,6 @@ The initial goal is to provide predictions using only the `train.csv` and `test.
 
 ## Results
 
-After running the script `favorita_forecast.py`, the prediction data will be outputted to the file `predictions.csv`.
+After running the script `favorita-forecast.py`, the prediction data will be outputted to the file `predictions.csv`.
 
 Our first pass gave an RMSLE of 0.50829 in testing, while our predictions resulted in an RMSLE of 0.52590 when submitted to the Kaggle competition. 
