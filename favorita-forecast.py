@@ -7,10 +7,6 @@ from category_encoders import MEstimateEncoder
 # Load data
 df_train = pd.read_csv("./input/favorita-store-sales/train.csv")
 df_test = pd.read_csv("./input/favorita-store-sales/test.csv")
-df_stores = pd.read_csv("./input/favorita-store-sales/stores.csv")
-df_oil = pd.read_csv("./input/favorita-store-sales/oil.csv")
-df_holidays = pd.read_csv("./input/favorita-store-sales/holidays_events.csv")
-df_transactions = pd.read_csv("./input/favorita-store-sales/transactions.csv")
 
 # Clean data
 df_train['date'] = pd.to_datetime(df_train['date'], format='%Y-%m-%d')
