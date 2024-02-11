@@ -1,6 +1,6 @@
 # Favorita sales forecasting
 
-This is a data science project based on the Kaggle competition ["Store Sales - Time Series Forecasting"](https://www.kaggle.com/competitions/store-sales-time-series-forecasting/), which concerns the 'Favorita' grocery stores, an Ecuadorian chain. 
+This is a data science project based on the Kaggle competition ["Store Sales - Time Series Forecasting"](https://www.kaggle.com/competitions/store-sales-time-series-forecasting/), which concerns the 'Favorita' grocery stores, an Ecuadorian chain. However, we will not be using all the data given in that competition. Instead, our goal is to use only the `train.csv` and `test.csv` datasets, together with autoregression analysis, to make predictions.
 
 The dataset (found in the `input` folder) contains daily sales data from 2012 to 2017. The goal is to predict the following 15 days of sales in 54 stores, across 33 product families. Accuracy of predictions is scored using RMSLE.
 
@@ -10,21 +10,14 @@ The `input` folder contains the following datasets.
 
 1. `train.csv` contains a time series of various features, with sales data. This is intended to be used as training data.
 2. `test.csv` contains a time series of the same features as `train.csv` for the next 15 days, but without sales data. The goal is to predict the sales data.
-3. `stores.csv` provides information about the location and type of each store, which could allow us to identify trends based on geographic location.
-4. `oil.csv` contains the daily oil price, which is known to have a big influence on Ecuador's economy.
-5. `holidays_events.csv` contains information on important holidays and events in Ecuador, which could help explain anomalous days on which sales spike or drop.
-6. `transactions.csv` contains the number of transactions that each store makes on a given day, which for example could be used in tandem with the sales figures to determine average spend per sale.
 
-In addition, we have the following knowledge.
-
-- Wages in the public sector are paid every two weeks on the 15 th and on the last day of the month. Supermarket sales could be affected by this.
-- A magnitude 7.8 earthquake struck Ecuador on April 16, 2016. People rallied in relief efforts donating water and other first need products which greatly affected supermarket sales for several weeks after the earthquake.
+In addition, we know that a magnitude 7.8 earthquake struck Ecuador on April 16, 2016. People rallied in relief efforts donating water and other first need products which greatly affected supermarket sales for several weeks after the earthquake.
 
 ## Methodology
 
 Below is a brief summary of the methodology. A more detailed methodology, complete with code snippets and plots, can be found in the notebook `favorita-sales-forecasting.ipynb`.
 
-The initial goal is to provide predictions using only the `train.csv` and `test.csv` datasets. We apply the following techniques to achieve this.
+The goal is to provide predictions using only the `train.csv` and `test.csv` datasets. We apply the following techniques to achieve this.
 
 1. **Data cleaning.** This includes converting dates from strings to `datetime64` data types and dropping the `id` column, which is just a copy of the index.
 2. **Anomaly detection.** We visualise the data with a scatter plot and remove rows with anomalous data. We focus particularly on the weeks following the earthquake, which we know caused abnormal sales. We do not expect an earthquake in the next 15 days, so this should not factor into our predictions.
